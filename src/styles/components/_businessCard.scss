@@ -1,6 +1,10 @@
 .businessCard {
   background: url("../images/background.png") center center;
   position: relative;
+  font-family: $secondaryfont;
+  font-size: $font-size-xxs;
+  line-height: 14px;
+  color: $color-positive-light;
   padding: $spacing*14 $spacing*5 $spacing*18;
   box-shadow: 4px 0px 8px $color-shadow-dark;
 
@@ -51,6 +55,10 @@
   }
 
   &-cardFront {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background-color: $color-white;
     width: 271px;
     height: 171px;
@@ -58,5 +66,63 @@
     margin-top: $spacing*14;
     box-shadow: -2px -2px 4px $color-shadow-light;
     z-index: 1;
+    padding: $spacing*3 $spacing*4;
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: $spacing*3;
+      right: $spacing*4;
+      height: 15px;
+      width: 12px;
+      background: url("../images/cabify-logo-min.svg") center center no-repeat;
+      background-size: contain;
+    }
+
+    &-bottom {
+      padding-right: $spacing*3;
+    }
+
+    &-title {
+      color: $color-print-main;
+      font-size: $font-size-m;
+      line-height: 24px;
+    }
+    
+    &-subtitle {
+      color: $color-base;
+      line-height: 16px;
+      font-size: $font-size-xs;
+    }
+  }
+
+  &-icon {
+    &-phone, &-email, &-website, &-address {
+      &:before {
+        content: "";
+        display: inline-block;
+        margin-right: $spacing;
+        width: $spacing;
+        height: $spacing;
+        vertical-align: middle;
+        margin-top: -2px;
+      }
+    }
+
+    &-phone:before {
+      background: url("../images/phone.svg") center center;
+      background-size: contain;
+    }
+    &-email:before {
+      background: url("../images/email.svg") center center;
+      background-size: contain;
+    }
+    &-website:before {
+      background: url("../images/website.svg") center center;
+      background-size: contain;
+    }
+    &-address:before {
+      background: url("../images/address.svg") center center;
+      background-size: contain;
+    }
   }
 }

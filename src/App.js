@@ -16,60 +16,70 @@ class App extends Component {
           <div className="businessCard-cards">
             <div className="businessCard-cardBack" />
             <div className="businessCard-cardFront">
+              <div>
+                <p className="businessCard-cardFront-title">Laura Sánchez</p>
+                <p className="businessCard-cardFront-subtitle">Fronte</p>
+              </div>
+              <div className="businessCard-cardFront-bottom">
+                <p className="businessCard-icon-phone">+34 </p>
+                <p className="businessCard-icon-email"></p>
+                <p className="businessCard-icon-website">www.cabify.com</p>
+                <p className="businessCard-icon-address">Calle Pradillo 42. CP: 28002. Madrid</p>
+              </div>
             </div>
           </div>
         </article>
         <article className="builder col col6">
           <form className="form" action="">
             <div className="row">
-              <div class="formField-input active focus col col12">
-                <div class="input">
+              <div className="formField-input active col col12">
+                <div className="input">
                   <input type="text" name="fullname" value="Laura Sánchez" />
-                  <label for="fullname">Full name</label>
+                  <label htmlFor="fullname">Full name</label>
                 </div>
               </div>
             </div>
             <div className="row row-separationMedium">
               {/* you probably need to add active/focus/disabled classNames */}
-              <div class="formField-input col col12">
-                <div class="input">
-                  <input type="text" name="jobdescription" />
-                  <label for="jobdescription">Job description</label>
+              <div className="formField-input active focus col col12">
+                <div className="input">
+                  <input type="text" name="jobdescription" value="Fronte" />
+                  <label htmlFor="jobdescription">Job description</label>
                 </div>
               </div>
             </div>
             <div className="row row-separationMedium row-gutterMedium">
-              <div class="col col3">
+              <div className="col col3">
                 {/* select field will be placed here */}
               </div>
-              <div class="formField-input col col9">
-                <div class="input">
+              <div className="formField-input col col9">
+                <div className="input">
                   <input type="tel" name="ponenumber" />
-                  <label for="ponenumber">Phone number</label>
+                  <label htmlFor="ponenumber">Phone number</label>
                 </div>
               </div>
             </div>
             <div className="row row-separationMedium">
-              <div class="formField-input col col12">
-                <div class="input">
+              <div className="formField-input col col12">
+                <div className="input">
                   <input type="email" name="email" />
-                  <label for="email">Email</label>
+                  <label htmlFor="email">Email</label>
                 </div>
               </div>
             </div>
             <div className="row row-separationMedium">
-              <div class="formField-input active disabled col col12">
-                <div class="input">
+              <div className="formField-input active disabled col col12">
+                <div className="input">
                   <input type="text" name="website" value="www.cabify.com" />
-                  <label for="website">Website</label>
+                  <label htmlFor="website">Website</label>
                 </div>
               </div>
             </div>
             <div className="row row-separationMedium">
-              <div class="formField-input active col col12">
-                <div class="input">
+              <div className="formField-input active col col12">
+                <div className="input">
                   <input type="text" name="address" value="Calle Pradillo 42. CP: 28002. Madrid" />
-                  <label for="address">Address</label>
+                  <label htmlFor="address">Address</label>
                 </div>
               </div>
             </div>

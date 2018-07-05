@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="8px" height="5px" viewBox="0 0 8 5" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>Icon arrow down</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD" transform="translate(-843.000000, -430.000000)" fill="#A7A7B3">
+            <g id="Group-7" transform="translate(750.000000, 411.000000)">
+                <path d="M96.9956894,21.9350292 L99.7053073,19.2254112 C100.002068,18.9286502 100.478036,18.9234727 100.772971,19.218408 C101.065864,19.5113012 101.063042,19.9889968 100.765967,20.2860714 L97.5979935,23.4540454 C97.4311796,23.6208593 97.2077413,23.6955405 96.9916618,23.6765741 C96.7782307,23.692978 96.5580585,23.6187187 96.3933852,23.4540454 L93.2254112,20.2860714 C92.9286502,19.9893104 92.9234727,19.5133432 93.218408,19.218408 C93.5113012,18.9255147 93.9889968,18.9283367 94.2860714,19.2254112 L96.9956894,21.9350292 Z" id="Icon-arrow-down"></path>
+            </g>
+        </g>
+    </g>
+</svg>

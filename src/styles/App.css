@@ -79,6 +79,9 @@ body {
 a {
   text-decoration: none; }
 
+::selection {
+  background: #64ffda; }
+
 /* stylelint-disable max-nesting-depth, unit-no-unknown */
 .row {
   display: flex;
@@ -275,6 +278,10 @@ a {
 .businessCard {
   background: url("../images/background.png") center center;
   position: relative;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 8px;
+  line-height: 14px;
+  color: #717285;
   padding: 112px 40px 144px;
   box-shadow: 4px 0px 8px rgba(33, 34, 64, 0.32); }
   .businessCard-badge {
@@ -312,13 +319,57 @@ a {
       top: calc(50% - 13px);
       left: calc(50% - 38px); }
   .businessCard-cardFront {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background-color: #FFFFFF;
     width: 271px;
     height: 171px;
     margin-left: -100%;
     margin-top: 112px;
     box-shadow: -2px -2px 4px rgba(33, 34, 64, 0.16);
-    z-index: 1; }
+    z-index: 1;
+    padding: 24px 32px; }
+    .businessCard-cardFront:before {
+      content: "";
+      position: absolute;
+      bottom: 24px;
+      right: 32px;
+      height: 15px;
+      width: 12px;
+      background: url("../images/cabify-logo-min.svg") center center no-repeat;
+      background-size: contain; }
+    .businessCard-cardFront-bottom {
+      padding-right: 24px; }
+    .businessCard-cardFront-title {
+      color: #4C58A7;
+      font-size: 13px;
+      line-height: 24px; }
+    .businessCard-cardFront-subtitle {
+      color: #212240;
+      line-height: 16px;
+      font-size: 11px; }
+  .businessCard-icon-phone:before, .businessCard-icon-email:before, .businessCard-icon-website:before, .businessCard-icon-address:before {
+    content: "";
+    display: inline-block;
+    margin-right: 8px;
+    width: 8px;
+    height: 8px;
+    vertical-align: middle;
+    margin-top: -2px; }
+  .businessCard-icon-phone:before {
+    background: url("../images/phone.svg") center center;
+    background-size: contain; }
+  .businessCard-icon-email:before {
+    background: url("../images/email.svg") center center;
+    background-size: contain; }
+  .businessCard-icon-website:before {
+    background: url("../images/website.svg") center center;
+    background-size: contain; }
+  .businessCard-icon-address:before {
+    background: url("../images/address.svg") center center;
+    background-size: contain; }
 
 .builder {
   display: flex;

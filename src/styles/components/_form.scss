@@ -22,15 +22,15 @@ input:-webkit-autofill {
         top: 0;
       }
     }
-
+    
     &.focus {
       border-color: $color-focus;
-
+      
       .input input {
         color: $color-main;
       }
     }
-
+    
     &.disabled {
       border-bottom: dotted 1px $color-positive-lighter;
       .input input {
@@ -38,11 +38,11 @@ input:-webkit-autofill {
         cursor: not-allowed;
       }
     }
-
+    
     .input {
       flex: 1 1 100%;
       position: relative;
-  
+      
       label {
         color: $color-positive-light;
         font-size: $font-size-xs;
@@ -54,7 +54,7 @@ input:-webkit-autofill {
         left: 0;
         transition: all $fastest ease;
       }
-
+      
       input {
         background-color: transparent;
         padding: $spacing*2 0 $spacing;
