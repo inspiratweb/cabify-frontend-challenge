@@ -24,9 +24,11 @@ $color-fb-negative: #FC5959;
 // -- Alphas
 // ---- Nagatives & shadows
 $alpha-16: 0.16;
+$alpha-32: 0.32;
 
 // -- Aliases (no more new colors from this line)
-$color-background: $color-selago;
+$color-background: #EEEEF0;
+$color-background-highlight: $color-selago;
 $color-base: $color-martinique;
 $color-main: $color-moradul;
 $color-main-light: $color-moradul-light;
@@ -34,19 +36,26 @@ $color-main-dark: $color-moradul-dark;
 $color-focus: $color-main;
 
 $color-shadow-light: rgba($color-base, $alpha-16);
+$color-shadow-dark: rgba($color-base, $alpha-32);
 
 $color-print-main: #4C58A7;
 
-// -- Base 8 padding & margin
+// Base 8 padding & margin
 $spacing: 8px;
 
-// -- Default border-radius
+// Default border-radius
 $radius: 4px;
 
-// -- Fonts
+// Transition speed
+$slow: 2s;
+$fast: 1s;
+$faster: 0.5s;
+$fastest: 0.3s;
+
+// Fonts
 $mainfont: "Avenir Next", "Avenir", "Segoe UI", sans-serif;
 
-// ---- Sizes
+// -- Sizes
 $font-size-xxl: 36px;
 $font-size-xl: 16px;
 $font-size-l: 14px;
@@ -55,7 +64,7 @@ $font-size-s: 12px;
 $font-size-xs: 11px;
 $font-size-xxs: 8px;
 
-// Weights
+// -- Weights
 $bold-weight: 700;
 $book-weight: 400;
 $light-weight: 300;

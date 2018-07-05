@@ -2,6 +2,7 @@
   background: url("../images/background.png") center center;
   position: relative;
   padding: $spacing*14 $spacing*5 $spacing*18;
+  box-shadow: 4px 0px 8px $color-shadow-dark;
 
   &-badge {
     position: absolute;

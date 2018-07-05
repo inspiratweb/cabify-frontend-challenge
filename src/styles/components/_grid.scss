@@ -36,7 +36,7 @@ $colSizes: 12, 10, 9, 8, 7, 6, 5, 4, 3, 2;
 
           @each $col in $colSizes {
             &#{$col} {
-              width: calc(#{$col}/12*100%) - (#{$i*$spacing});
+              width: calc((#{$col}/12*100%) - (#{$i*$spacing}));
             }
           }
         }

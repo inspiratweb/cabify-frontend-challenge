@@ -1,0 +1,41 @@
+%button-default-shadow {
+  box-shadow: 0 1px 4px 0 $color-shadow-light, inset 0 1px 1px 0 rgba($color-white, $alpha-16);
+}
+
+.button {
+  padding: 12px 20px;
+  min-height: $spacing*6;
+  max-width: 100%;
+  border: 0;
+  border-radius: $radius*2;
+  text-align: center;
+  font-size: $font-size-l;
+  font-weight: $bold-weight;
+  line-height: $spacing*3;
+  cursor: pointer;
+  transition: all $faster linear;
+  &.disabled {
+    opacity: $alpha-32;
+    pointer-events: none;
+  }
+
+  &-primary {
+    background-color: $color-main;
+    color: $color-white;
+
+    @extend %button-default-shadow;
+
+    &:active {
+      background-color: $color-main-dark;
+    }
+
+    &:hover {
+      background-color: $color-main-light;
+    }
+  }
+
+  &-full {
+    display: block;
+    width: 100%;
+  }
+}
