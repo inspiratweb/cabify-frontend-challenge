@@ -1,0 +1,46 @@
+/* stylelint-disable max-nesting-depth, unit-no-unknown */
+$sizesArray: "Tiny", "Small", "Medium", "Big", "Huge", "Enormous";
+$colSizes: 12, 10, 9, 8, 7, 6, 5, 4, 3, 2;
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+
+  &-separation {
+    @each $sizes in $sizesArray {
+      $i: index($sizesArray, $sizes);
+      &#{$sizes} {
+        margin-top: $i*$spacing;
+      }
+    }
+  }
+
+  >.col {
+    @each $col in $colSizes {
+      &#{$col} {
+        width: calc(#{$col}/12*100%);
+      }
+    }
+  }
+
+  &-gutter {
+    @each $sizes in $sizesArray {
+      $i: index($sizesArray, $sizes);
+      &#{$sizes} {
+        margin-right: -$i*($spacing/2);
+        margin-left: -$i*($spacing/2);
+
+        >.col {
+          margin-left: $i*($spacing/2);
+          margin-right: $i*($spacing/2);
+
+          @each $col in $colSizes {
+            &#{$col} {
+              width: calc(#{$col}/12*100%) - (#{$i*$spacing});
+            }
+          }
+        }
+      }
+    }
+  }
+}

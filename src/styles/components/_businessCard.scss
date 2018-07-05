@@ -1,0 +1,61 @@
+.businessCard {
+  background: url("../images/background.png") center center;
+  position: relative;
+  padding: $spacing*14 $spacing*5 $spacing*18;
+
+  &-badge {
+    position: absolute;
+    top: 0;
+    right: $spacing*2;
+    width: $spacing*10;
+    height: $spacing*8;
+    background-color: $color-main;
+
+    &-logo {
+      position: absolute;
+      // brand spacing definition
+      margin: 10px;
+      bottom: 0;
+
+      img {
+        width: 100%;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  &-cards {
+    display: flex;
+    justify-content: space-between;
+    margin-top: $spacing*11;
+  }
+
+  &-cardBack {
+    position: relative;
+    background-color: $color-print-main;
+    width: 271px;
+    height: 171px;
+    margin-left: $spacing;
+    transform: rotate(-9deg);
+    box-shadow: -2px -2px 4px $color-shadow-light;
+    &:before {
+      content: "";
+      position: absolute;
+      background: url("../images/cabify-logo.svg") center center no-repeat;
+      width: 77px;
+      height: 26px;
+      top: calc(50% - 13px);
+      left: calc(50% - 38px);
+    }
+  }
+
+  &-cardFront {
+    background-color: $color-white;
+    width: 271px;
+    height: 171px;
+    margin-left: -100%;
+    margin-top: $spacing*14;
+    box-shadow: -2px -2px 4px $color-shadow-light;
+    z-index: 1;
+  }
+}

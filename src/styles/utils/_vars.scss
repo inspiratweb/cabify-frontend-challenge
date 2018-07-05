@@ -1,0 +1,61 @@
+// Colors
+// -- Global
+$color-white: #FFFFFF;
+$color-black: #000000;
+
+// -- Primary colors
+$color-moradul: #7350FF;
+$color-moradul-light: #7F5AFF;
+$color-moradul-dark: #6645FF;
+
+$color-martinique: #212240;
+
+// -- Secondary colors
+$color-selago: #F8FAFB;
+
+// ---- Positive
+$color-positive: $color-martinique;
+$color-positive-light: #717285;
+$color-positive-lighter: #A7A7B3;
+
+// -- Feedback
+$color-fb-negative: #FC5959;
+
+// -- Alphas
+// ---- Nagatives & shadows
+$alpha-16: 0.16;
+
+// -- Aliases (no more new colors from this line)
+$color-background: $color-selago;
+$color-base: $color-martinique;
+$color-main: $color-moradul;
+$color-main-light: $color-moradul-light;
+$color-main-dark: $color-moradul-dark;
+$color-focus: $color-main;
+
+$color-shadow-light: rgba($color-base, $alpha-16);
+
+$color-print-main: #4C58A7;
+
+// -- Base 8 padding & margin
+$spacing: 8px;
+
+// -- Default border-radius
+$radius: 4px;
+
+// -- Fonts
+$mainfont: "Avenir Next", "Avenir", "Segoe UI", sans-serif;
+
+// ---- Sizes
+$font-size-xxl: 36px;
+$font-size-xl: 16px;
+$font-size-l: 14px;
+$font-size-m: 13px;
+$font-size-s: 12px;
+$font-size-xs: 11px;
+$font-size-xxs: 8px;
+
+// Weights
+$bold-weight: 700;
+$book-weight: 400;
+$light-weight: 300;

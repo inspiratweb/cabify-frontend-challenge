@@ -1,0 +1,24 @@
+body {
+  background-color: $color-background;
+  color: $color-positive;
+  text-size-adjust: 100%;
+  font-family: $mainfont;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.cabify-challenge {
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainWrapper {
+  width: $spacing*110;
+  border: solid 1px red;
+}
+
+a {
+  text-decoration: none;
+}

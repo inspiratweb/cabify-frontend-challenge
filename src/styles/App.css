@@ -1,0 +1,326 @@
+* {
+  box-sizing: border-box;
+  outline: none; }
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  font: 100%; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+a {
+  cursor: pointer; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: none; }
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse; }
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  margin: 0;
+  appearance: none; }
+
+input[type=number] {
+  appearance: textfield; }
+
+textarea {
+  vertical-align: top; }
+
+body {
+  background-color: #F8FAFB;
+  color: #212240;
+  text-size-adjust: 100%;
+  font-family: "Avenir Next", "Avenir", "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 20px; }
+
+.cabify-challenge {
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center; }
+
+.mainWrapper {
+  width: 880px;
+  border: solid 1px red; }
+
+a {
+  text-decoration: none; }
+
+/* stylelint-disable max-nesting-depth, unit-no-unknown */
+.row {
+  display: flex;
+  flex-wrap: wrap; }
+  .row-separationTiny {
+    margin-top: 8px; }
+  .row-separationSmall {
+    margin-top: 16px; }
+  .row-separationMedium {
+    margin-top: 24px; }
+  .row-separationBig {
+    margin-top: 32px; }
+  .row-separationHuge {
+    margin-top: 40px; }
+  .row-separationEnormous {
+    margin-top: 48px; }
+  .row > .col12 {
+    width: calc(12/12*100%); }
+  .row > .col10 {
+    width: calc(10/12*100%); }
+  .row > .col9 {
+    width: calc(9/12*100%); }
+  .row > .col8 {
+    width: calc(8/12*100%); }
+  .row > .col7 {
+    width: calc(7/12*100%); }
+  .row > .col6 {
+    width: calc(6/12*100%); }
+  .row > .col5 {
+    width: calc(5/12*100%); }
+  .row > .col4 {
+    width: calc(4/12*100%); }
+  .row > .col3 {
+    width: calc(3/12*100%); }
+  .row > .col2 {
+    width: calc(2/12*100%); }
+  .row-gutterTiny {
+    margin-right: -4px;
+    margin-left: -4px; }
+    .row-gutterTiny > .col {
+      margin-left: 4px;
+      margin-right: 4px; }
+      .row-gutterTiny > .col12 {
+        width: calc(12/12*100%) - 8px; }
+      .row-gutterTiny > .col10 {
+        width: calc(10/12*100%) - 8px; }
+      .row-gutterTiny > .col9 {
+        width: calc(9/12*100%) - 8px; }
+      .row-gutterTiny > .col8 {
+        width: calc(8/12*100%) - 8px; }
+      .row-gutterTiny > .col7 {
+        width: calc(7/12*100%) - 8px; }
+      .row-gutterTiny > .col6 {
+        width: calc(6/12*100%) - 8px; }
+      .row-gutterTiny > .col5 {
+        width: calc(5/12*100%) - 8px; }
+      .row-gutterTiny > .col4 {
+        width: calc(4/12*100%) - 8px; }
+      .row-gutterTiny > .col3 {
+        width: calc(3/12*100%) - 8px; }
+      .row-gutterTiny > .col2 {
+        width: calc(2/12*100%) - 8px; }
+  .row-gutterSmall {
+    margin-right: -8px;
+    margin-left: -8px; }
+    .row-gutterSmall > .col {
+      margin-left: 8px;
+      margin-right: 8px; }
+      .row-gutterSmall > .col12 {
+        width: calc(12/12*100%) - 16px; }
+      .row-gutterSmall > .col10 {
+        width: calc(10/12*100%) - 16px; }
+      .row-gutterSmall > .col9 {
+        width: calc(9/12*100%) - 16px; }
+      .row-gutterSmall > .col8 {
+        width: calc(8/12*100%) - 16px; }
+      .row-gutterSmall > .col7 {
+        width: calc(7/12*100%) - 16px; }
+      .row-gutterSmall > .col6 {
+        width: calc(6/12*100%) - 16px; }
+      .row-gutterSmall > .col5 {
+        width: calc(5/12*100%) - 16px; }
+      .row-gutterSmall > .col4 {
+        width: calc(4/12*100%) - 16px; }
+      .row-gutterSmall > .col3 {
+        width: calc(3/12*100%) - 16px; }
+      .row-gutterSmall > .col2 {
+        width: calc(2/12*100%) - 16px; }
+  .row-gutterMedium {
+    margin-right: -12px;
+    margin-left: -12px; }
+    .row-gutterMedium > .col {
+      margin-left: 12px;
+      margin-right: 12px; }
+      .row-gutterMedium > .col12 {
+        width: calc(12/12*100%) - 24px; }
+      .row-gutterMedium > .col10 {
+        width: calc(10/12*100%) - 24px; }
+      .row-gutterMedium > .col9 {
+        width: calc(9/12*100%) - 24px; }
+      .row-gutterMedium > .col8 {
+        width: calc(8/12*100%) - 24px; }
+      .row-gutterMedium > .col7 {
+        width: calc(7/12*100%) - 24px; }
+      .row-gutterMedium > .col6 {
+        width: calc(6/12*100%) - 24px; }
+      .row-gutterMedium > .col5 {
+        width: calc(5/12*100%) - 24px; }
+      .row-gutterMedium > .col4 {
+        width: calc(4/12*100%) - 24px; }
+      .row-gutterMedium > .col3 {
+        width: calc(3/12*100%) - 24px; }
+      .row-gutterMedium > .col2 {
+        width: calc(2/12*100%) - 24px; }
+  .row-gutterBig {
+    margin-right: -16px;
+    margin-left: -16px; }
+    .row-gutterBig > .col {
+      margin-left: 16px;
+      margin-right: 16px; }
+      .row-gutterBig > .col12 {
+        width: calc(12/12*100%) - 32px; }
+      .row-gutterBig > .col10 {
+        width: calc(10/12*100%) - 32px; }
+      .row-gutterBig > .col9 {
+        width: calc(9/12*100%) - 32px; }
+      .row-gutterBig > .col8 {
+        width: calc(8/12*100%) - 32px; }
+      .row-gutterBig > .col7 {
+        width: calc(7/12*100%) - 32px; }
+      .row-gutterBig > .col6 {
+        width: calc(6/12*100%) - 32px; }
+      .row-gutterBig > .col5 {
+        width: calc(5/12*100%) - 32px; }
+      .row-gutterBig > .col4 {
+        width: calc(4/12*100%) - 32px; }
+      .row-gutterBig > .col3 {
+        width: calc(3/12*100%) - 32px; }
+      .row-gutterBig > .col2 {
+        width: calc(2/12*100%) - 32px; }
+  .row-gutterHuge {
+    margin-right: -20px;
+    margin-left: -20px; }
+    .row-gutterHuge > .col {
+      margin-left: 20px;
+      margin-right: 20px; }
+      .row-gutterHuge > .col12 {
+        width: calc(12/12*100%) - 40px; }
+      .row-gutterHuge > .col10 {
+        width: calc(10/12*100%) - 40px; }
+      .row-gutterHuge > .col9 {
+        width: calc(9/12*100%) - 40px; }
+      .row-gutterHuge > .col8 {
+        width: calc(8/12*100%) - 40px; }
+      .row-gutterHuge > .col7 {
+        width: calc(7/12*100%) - 40px; }
+      .row-gutterHuge > .col6 {
+        width: calc(6/12*100%) - 40px; }
+      .row-gutterHuge > .col5 {
+        width: calc(5/12*100%) - 40px; }
+      .row-gutterHuge > .col4 {
+        width: calc(4/12*100%) - 40px; }
+      .row-gutterHuge > .col3 {
+        width: calc(3/12*100%) - 40px; }
+      .row-gutterHuge > .col2 {
+        width: calc(2/12*100%) - 40px; }
+  .row-gutterEnormous {
+    margin-right: -24px;
+    margin-left: -24px; }
+    .row-gutterEnormous > .col {
+      margin-left: 24px;
+      margin-right: 24px; }
+      .row-gutterEnormous > .col12 {
+        width: calc(12/12*100%) - 48px; }
+      .row-gutterEnormous > .col10 {
+        width: calc(10/12*100%) - 48px; }
+      .row-gutterEnormous > .col9 {
+        width: calc(9/12*100%) - 48px; }
+      .row-gutterEnormous > .col8 {
+        width: calc(8/12*100%) - 48px; }
+      .row-gutterEnormous > .col7 {
+        width: calc(7/12*100%) - 48px; }
+      .row-gutterEnormous > .col6 {
+        width: calc(6/12*100%) - 48px; }
+      .row-gutterEnormous > .col5 {
+        width: calc(5/12*100%) - 48px; }
+      .row-gutterEnormous > .col4 {
+        width: calc(4/12*100%) - 48px; }
+      .row-gutterEnormous > .col3 {
+        width: calc(3/12*100%) - 48px; }
+      .row-gutterEnormous > .col2 {
+        width: calc(2/12*100%) - 48px; }
+
+.businessCard {
+  background: url("../images/background.png") center center;
+  position: relative;
+  padding: 112px 40px 144px; }
+  .businessCard-badge {
+    position: absolute;
+    top: 0;
+    right: 16px;
+    width: 80px;
+    height: 64px;
+    background-color: #7350FF; }
+    .businessCard-badge-logo {
+      position: absolute;
+      margin: 10px;
+      bottom: 0; }
+      .businessCard-badge-logo img {
+        width: 100%;
+        vertical-align: middle; }
+  .businessCard-cards {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 88px; }
+  .businessCard-cardBack {
+    position: relative;
+    background-color: #4C58A7;
+    width: 271px;
+    height: 171px;
+    margin-left: 8px;
+    transform: rotate(-9deg);
+    box-shadow: -2px -2px 4px rgba(33, 34, 64, 0.16); }
+    .businessCard-cardBack:before {
+      content: "";
+      position: absolute;
+      background: url("../images/cabify-logo.svg") center center no-repeat;
+      width: 77px;
+      height: 26px;
+      top: calc(50% - 13px);
+      left: calc(50% - 38px); }
+  .businessCard-cardFront {
+    background-color: #FFFFFF;
+    width: 271px;
+    height: 171px;
+    margin-left: -100%;
+    margin-top: 112px;
+    box-shadow: -2px -2px 4px rgba(33, 34, 64, 0.16);
+    z-index: 1; }
+
+.title-main {
+  font-size: 36px;
+  line-height: 48px;
+  color: #FFFFFF; }
