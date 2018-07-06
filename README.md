@@ -1,4 +1,4 @@
-# Cabify frontend challenge
+# Cabify Frontend-UI challenge
 For the coding challenge you have to create a business card builder in React. You'll be given some custom premade CSS, an HTML markup (which you can modify) and a React application created with facebook's create-react-app.
 To complete the challenge you need to create a form in react with the given HTML. You'll need to finish the following features in this order:
 1. Create a custom Select component for the country codes missing select input. The component has the following requirements:
