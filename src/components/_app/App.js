@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import cabifyLogo from './images/cabify-logo.svg';
-import './styles/App.css';
+import cabifyLogo from '../../images/cabify-logo.svg';
+import '../../styles/App.css';
 
 class App extends Component {
   render() {
