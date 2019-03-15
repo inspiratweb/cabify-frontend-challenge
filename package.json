@@ -2,6 +2,7 @@
   "name": "cabify_frontend_challenge",
   "version": "0.1.0",
   "private": true,
+  "author": "Fabio Guelfi",
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
@@ -15,8 +16,11 @@
     "node-sass-chokidar": "^1.3.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "react-scripts": "1.1.4",
-    "commit": "git-cz"
+    "react-scripts": "1.1.4"
+  },
+  "devDependencies": {
+    "commitizen": "^2.10.1",
+    "emoji-cz": "^0.3.0"
   },
   "config": {
     "commitizen": {
@@ -59,10 +63,5 @@
         "format": "[emoji] [name]: [subject]"
       }
     }
-  },
-  "author": "Fabio Guelfi",
-  "devDependencies": {
-    "commitizen": "^2.10.1",
-    "emoji-cz": "^0.3.0"
   }
 }
