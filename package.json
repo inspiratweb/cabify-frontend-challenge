@@ -2,18 +2,67 @@
   "name": "cabify_frontend_challenge",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "node-sass-chokidar": "^1.3.0",
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
-    "react-scripts": "1.1.4"
-  },
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "commit": "git-cz"
+  },
+  "dependencies": {
+    "node-sass-chokidar": "^1.3.0",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-scripts": "1.1.4",
+    "commit": "git-cz"
+  },
+  "config": {
+    "commitizen": {
+      "path": "emoji-cz",
+      "emoji-cz": {
+        "types": {
+          "Feat": {
+            "emoji": "✨",
+            "description": "A new feature"
+          },
+          "Fix": {
+            "emoji": "🐛",
+            "description": "A bug fix"
+          },
+          "Docs": {
+            "emoji": "📚",
+            "description": "Documentation only changes"
+          },
+          "Style": {
+            "emoji": "🎨",
+            "description": "Changes that do not affect the meaning of the code"
+          },
+          "Refactor": {
+            "emoji": "🔨",
+            "description": "A code change that neither fixes a bug nor adds a feature"
+          },
+          "Perf": {
+            "emoji": "🚀",
+            "description": "A code change that improves performance"
+          },
+          "Test": {
+            "emoji": "🚨",
+            "description": "Adding missing tests or correcting existing tests"
+          },
+          "Chore": {
+            "emoji": "🔩",
+            "description": "Other changes that don't modify src or test files"
+          }
+        },
+        "format": "[emoji] [name]: [subject]"
+      }
+    }
+  },
+  "author": "Fabio Guelfi",
+  "devDependencies": {
+    "commitizen": "^2.10.1",
+    "emoji-cz": "^0.3.0"
   }
 }
