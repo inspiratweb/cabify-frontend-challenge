@@ -1,9 +1,10 @@
 import React from 'react'
 import cabifyLogo from './images/cabify-logo.svg'
 import classnames from 'classnames'
+import { InputComponent, BussinessCardComponent, ButtonComponent } from './components'
 import './styles/App.css'
 
-class App extends React.Component {
+class App extends React.PureComponent {
   constructor() {
     super()
     this.state = {
@@ -15,14 +16,16 @@ class App extends React.Component {
         email: '',
         website: 'www.cabify.com',
         address: '',
-        valid: true,
+        valid: false,
       },
-      errors: {},
+      errors: {
+        name: true,
+        email: true
+      },
       currentInput: ''
     }
 
     this.textInput = React.createRef()
-    this.currentInput = this.currentInput.bind(this)
   }
 
   emailValidate = (email) => {
@@ -31,21 +34,18 @@ class App extends React.Component {
     } else this.setState({ errors: { email: true } })
   }
 
-  phoneValidate = (phone) => {
-    if (/^.[0-9]{8,}$/.test(phone)) {
+  phoneValidate = () => {
+    if (/^.[0-9]{8,}$/.test(this.state.form.phone)) {
       this.setState({ errors: { phone: false } })
     } else this.setState({ errors: { phone: true } })
   }
-
 
   handlerChangesInputs = (e) => {
     const { value, name } = e.target
     this.setState({ form: { ...this.state.form, [name]: value, } })
   }
 
-  currentInput({ currentTarget: { name } }) {
-    this.setState({ currentInput: name })
-  }
+  updateCurrentInput = ({ currentTarget: { name } }) => this.setState({ currentInput: name })
 
   onSubmit = (e) => {
     e.preventDefault()
@@ -53,78 +53,44 @@ class App extends React.Component {
     console.log(this.state)
   }
 
-  render() {
-    const { form: { name, jobdescription, phone, email, address, valid }, errors, currentInput } = this.state
+  render = ({ form, form: { name, jobdescription, phone, email, address, valid }, errors, currentInput } = this.state) => {
 
     return (
       <div className="mainWrapper row">
-        <article className="businessCard col col6">
-          <figure className="businessCard-badge">
-            <a className="businessCard-badge-logo" href="http://www.cabify.com">
-              <img src={cabifyLogo} alt="Cabify" />
-            </a>
-          </figure>
-          <h1 className="title-main">Request your business card</h1>
-          <div className="businessCard-cards">
-            <div className="businessCard-cardBack" />
-            <div className="businessCard-cardFront">
-              <div>
-                <p className="businessCard-cardFront-title">Laura Sánchez</p>
-                <p className="businessCard-cardFront-subtitle">Fronte</p>
-              </div>
-              <div className="businessCard-cardFront-bottom">
-                <p className="businessCard-icon-phone">+34 </p>
-                <p className="businessCard-icon-email"></p>
-                <p className="businessCard-icon-website">www.cabify.com</p>
-                <p className="businessCard-icon-address">Calle Pradillo 42. CP: 28002. Madrid</p>
-              </div>
-            </div>
-          </div>
-        </article>
+
+        {/* BUSSINESS CARD */}
+        <BussinessCardComponent cabifyLogo={cabifyLogo} {...form} />
+
         <article className="builder col col6">
+
           <form onSubmit={this.onSubmit} className="form">
 
             {/* NAME */}
-            <div className="row">
-              <div className={classnames('formField-input active col col12',
-                { 'focus': currentInput === 'name' })}>
+            <InputComponent
+              name={'name'}
+              label={'Full name'}
+              type={'text'}
+              stylesDefault={'formField-input col col12'}
+              form={form}
+              value={name}
+              errors={errors}
+              currentInput={currentInput}
+              updateCurrentInput={this.updateCurrentInput}
+              handlerChangesInputs={this.handlerChangesInputs} />
 
-                <div className="input">
-                  <input
-                    className={classnames('form-control form-control-lg',
-                      { 'active': currentInput === 'name' },
-                      { 'focus': currentInput === 'name' })}
-                    type="text"
-                    name="name"
-                    value={name}
-                    onChange={this.handlerChangesInputs}
-                    onClick={this.currentInput} />
-                  <label htmlFor="name">Full name</label>
-                </div>
-
-              </div>
-            </div>
 
             {/* JOBDESCRIPTION */}
-            <div className="row row-separationMedium">
-              <div className={classnames('formField-input active col col12',
-                { 'focus': currentInput === 'jobdescription' })}>
-
-                <div className="input">
-                  <input
-                    className={classnames('form-control form-control-lg',
-                      { 'active': currentInput === 'jobdescription' },
-                      { 'focus': currentInput === 'jobdescription' })}
-                    type="text"
-                    name="jobdescription"
-                    value={jobdescription}
-                    onChange={this.handlerChangesInputs}
-                    onClick={this.currentInput} />
-                  <label htmlFor="jobdescription">Job description</label>
-                </div>
-
-              </div>
-            </div>
+            <InputComponent
+              name={'jobdescription'}
+              label={'Job description'}
+              type={'text'}
+              stylesDefault={'formField-input col col12'}
+              form={form}
+              value={jobdescription}
+              errors={errors}
+              currentInput={currentInput}
+              updateCurrentInput={this.updateCurrentInput}
+              handlerChangesInputs={this.handlerChangesInputs} />
 
             {/* PHONE NUMBER */}
             <div className="row row-separationMedium row-gutterMedium">
@@ -133,18 +99,17 @@ class App extends React.Component {
               <div
                 className={classnames('formField-input col col9',
                   { 'focus': currentInput === 'phone' },
+                  { 'active': currentInput === 'phone' },
                   { 'input-error': errors.phone })}>
 
                 <div className='input'>
-                  <input className={classnames('',
-                    { 'active': currentInput === 'phone' },
-                    { 'focus': currentInput === 'phone' })}
+                  <input
                     type="tel"
                     name="phone"
                     value={phone}
                     onChange={this.handlerChangesInputs}
                     onClick={this.currentInput}
-                    onBlur={() => this.phoneValidate(phone)} />
+                    onBlur={() => this.phoneValidate} />
                   <label htmlFor="phone">Phone number</label>
                 </div>
 
@@ -152,63 +117,44 @@ class App extends React.Component {
             </div>
 
             {/* EMAIL */}
-            <div className="row row-separationMedium">
-              <div
-                className={classnames('formField-input col col12',
-                  { 'focus': currentInput === 'email' })}>
-
-                <div className='input'>
-                  <input
-                    className={classnames('input',
-                      { 'active': currentInput === 'email' },
-                      { 'focus': currentInput === 'email' })}
-                    type="email"
-                    name="email"
-                    value={email}
-                    onChange={this.handlerChangesInputs}
-                    onClick={this.currentInput} />
-                  <label htmlFor="email">Email</label>
-                </div>
-
-              </div>
-            </div>
+            <InputComponent
+              name={'email'}
+              label={'Email'}
+              type={'text'}
+              stylesDefault={'formField-input col col12'}
+              form={form}
+              value={email}
+              errors={errors}
+              currentInput={currentInput}
+              handlerChangesInputs={this.handlerChangesInputs}
+              updateCurrentInput={this.updateCurrentInput}
+              emailValidate={this.emailValidate} />
 
             {/* WEBSITE */}
-            <div className="row row-separationMedium">
-              <div className="formField-input active disabled col col12">
-                <div className="input">
-                  <input type="text" name="website" value="www.cabify.com" />
-                  <label htmlFor="website">Website</label>
-                </div>
-              </div>
-            </div>
+            <InputComponent
+              name={'website'}
+              label={'Website'}
+              type={'text'}
+              stylesDefault={'formField-input active disabled col col12'}
+              value={'www.cabify.com'} />
 
             {/* ADDRESS */}
-            <div className="row row-separationMedium">
-              <div
-                className={classnames('formField-input active col col12',
-                  { 'focus': currentInput === 'address' })}>
-                <div className="input">
-                  <input
-                    type="text"
-                    name="address"
-                    value={address}
-                    onChange={this.handlerChangesInputs}
-                    onClick={this.currentInput}
-                  />
-                  <label htmlFor="address">Address</label>
-                </div>
-              </div>
-            </div>
+            <InputComponent
+              name={'address'}
+              label={'Address'}
+              type={'text'}
+              stylesDefault={'formField-input col col12'}
+              form={form}
+              value={address}
+              errors={errors}
+              currentInput={currentInput}
+              handlerChangesInputs={this.handlerChangesInputs}
+              updateCurrentInput={this.updateCurrentInput} />
 
             {/* BUTTON */}
-            <div className="row row-separationHuge">
-              <input
-                className={classnames('button button-full button-primary',
-                  { 'disabled': !valid })}
-                type="submit"
-                value="Request" />
-            </div>
+            <ButtonComponent
+              valid={valid}
+              stylesDefault={'button button-full button-primary'} />
 
           </form>
         </article>
