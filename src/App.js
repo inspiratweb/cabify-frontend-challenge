@@ -19,8 +19,8 @@ class App extends React.PureComponent {
         valid: false,
       },
       errors: {
-        name: true,
-        email: true
+        email: false,
+        phone: false,
       },
       currentInput: ''
     }

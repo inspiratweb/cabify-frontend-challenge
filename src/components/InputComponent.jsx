@@ -3,13 +3,13 @@ import classnames from 'classnames'
 import PropTypes from 'prop-types'
 
 const InputComponent = ({ name, value, label, type, currentInput, errors, handlerChangesInputs, updateCurrentInput, emailValidate, form = {}, stylesDefault }) => {
-
-    return (
+    
+    return (    
         <div className='row'>
             <div className={classnames(stylesDefault,
                 { 'focus': currentInput === name },
                 { 'active': currentInput === name || value.length },
-                { 'error input-error': errors.email }
+                { 'error input-error': errors.email && name === 'email' }
             )}>
 
                 <div className='input'>
