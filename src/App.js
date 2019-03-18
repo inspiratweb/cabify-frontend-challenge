@@ -1,8 +1,14 @@
 import React from 'react'
-import cabifyLogo from './images/cabify-logo.svg'
-import classnames from 'classnames'
-import { InputComponent, BussinessCardComponent, ButtonComponent } from './components'
+// EXTERNAL MODULES
+import { FlagIcon } from 'react-flag-kit'
+// COMMON
+import PHONE_PREFIX from './common/prefix'
+// COMPONENTS
+import { InputComponent, BussinessCardComponent, ButtonComponent, InputPhoneComponent } from './components'
+// STYLES
 import './styles/App.css'
+// ASSETS
+import cabifyLogo from './images/cabify-logo.svg'
 
 class App extends React.PureComponent {
   constructor() {
@@ -22,7 +28,8 @@ class App extends React.PureComponent {
         email: false,
         phone: false,
       },
-      currentInput: ''
+      currentInput: '',
+      prefixCurrent: '',
     }
 
     this.textInput = React.createRef()
@@ -47,13 +54,15 @@ class App extends React.PureComponent {
 
   updateCurrentInput = ({ currentTarget: { name } }) => this.setState({ currentInput: name })
 
+  handlerChangeSelectPrefix = ({ prefixCurrent }) => this.setState({ prefixCurrent })
+
   onSubmit = (e) => {
     e.preventDefault()
     const { form: phone, email } = this.state
     console.log(this.state)
   }
 
-  render = ({ form, form: { name, jobdescription, phone, email, address, valid }, errors, currentInput } = this.state) => {
+  render = ({ form, form: { name, jobdescription, phone, email, address, valid }, errors, currentInput, prefixCurrent, togglePrefix } = this.state) => {
 
     return (
       <div className="mainWrapper row">
@@ -89,31 +98,36 @@ class App extends React.PureComponent {
               value={jobdescription}
               errors={errors}
               currentInput={currentInput}
-              updateCurrentInput={this.updateCurrentInput}
-              handlerChangesInputs={this.handlerChangesInputs} />
+              updateCurrentInput={this.updateCurrentInput} />
 
-            {/* PHONE NUMBER */}
+
             <div className="row row-separationMedium row-gutterMedium">
-              <div className="col col3">
-              </div>
-              <div
-                className={classnames('formField-input col col9',
-                  { 'focus': currentInput === 'phone' },
-                  { 'active': currentInput === 'phone' },
-                  { 'input-error': errors.phone })}>
+              {/* PREFIX PHONE NUMBER */}
+              <InputPhoneComponent
+                name={'prefix'}
+                FlagIcon={FlagIcon}
+                phonePrefixes={PHONE_PREFIX}
+                phone={phone}
+                currentInput={currentInput}
+                prefixCurrent={prefixCurrent}
+                errors={errors}
+                updateCurrentInput={this.updateCurrentInput}
+                handlerChangeSelectPrefix={this.handlerChangeSelectPrefix}
+                phoneValidate={this.phoneValidate} />
 
-                <div className='input'>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={phone}
-                    onChange={this.handlerChangesInputs}
-                    onClick={this.currentInput}
-                    onBlur={() => this.phoneValidate} />
-                  <label htmlFor="phone">Phone number</label>
-                </div>
-
-              </div>
+              {/* INPUT PHONE NUMBER */}
+              <InputComponent
+                name={'phone'}
+                label={'Phone Number'}
+                type={'number'}
+                stylesDefault={'formField-input col col9'}
+                form={form}
+                value={phone}
+                errors={errors}
+                currentInput={currentInput}
+                handlerChangesInputs={this.handlerChangesInputs}
+                updateCurrentInput={this.updateCurrentInput}
+                emailValidate={this.phoneValidate} />
             </div>
 
             {/* EMAIL */}

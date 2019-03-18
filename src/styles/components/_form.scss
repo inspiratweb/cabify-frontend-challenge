@@ -13,27 +13,26 @@ input:-webkit-autofill {
 }
 
 .formField {
-  &-input {
+  &-input, &-select {
     display: flex;
     border-bottom: solid 1px $color-positive-lighter;
     transition: all $fastest ease;
     &.active {
-      .input label {
+      .input label, .select label {
         top: 0;
       }
     }
     
     &.focus {
       border-color: $color-focus;
-      
-      .input input {
+      .input input, .select button {
         color: $color-main;
       }
     }
     
     &.disabled {
       border-bottom: dotted 1px $color-positive-lighter;
-      .input input {
+      .input input, .select button {
         color: $color-positive-lighter;
         cursor: not-allowed;
       }
@@ -68,8 +67,8 @@ input:-webkit-autofill {
       top: -4px;
       cursor: pointer;
     }
-    
-    .input {
+
+    .input, .select {
       flex: 1 1 100%;
       position: relative;
       
@@ -85,12 +84,94 @@ input:-webkit-autofill {
         transition: all $fastest ease;
       }
       
-      input {
+      input, button {
         background-color: transparent;
         padding: $spacing*2 0 $spacing;
         width: 100%;
         font-size: $font-size-s;
         line-height: 16px;
+      }
+
+      &-input {
+        cursor: pointer;
+        border: 0;
+        text-align: left;
+        width: 72px;
+        height: 40px;
+        padding: 16px 0px 8px;
+      }
+      
+      .popup{
+        display: none;
+        font-size: $font-size-l;
+        position: absolute;
+        left: -3px;
+        min-width: 240px;
+        max-height: 192px;
+        z-index: 5;
+        background-color: $color-white;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        border-radius: 3px;
+        box-shadow: 2px 2px 5px 5px $color-shadow-light;
+        cursor: pointer;
+          &::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+          }
+
+          .select-group-list{
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 5px 8px;
+
+            .select-option-container{
+              width: 224px;
+              border-radius: 4px; 
+              margin-bottom: 4px;
+                &:hover{
+                  background-color: $color-selago;
+                }
+              .select-option{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                color: $color-positive-light;
+
+                &-container-small{
+                  height: 32px;
+                  display: flex;
+                  align-items: center;
+
+                  .select-option-span{
+                    position: absolute;
+                    width: 40px;
+                    height: 15px;
+                  }
+              
+                  .select-option-flag{
+                    margin-left: 15px; 
+                  }
+                }
+                
+                &-prefix{
+                  margin-right: 15px;
+                }
+
+                &-country{
+                  margin-left: 15px;
+                  &-selected{
+                  color: $color-black;
+                  margin-left: 15px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      .open{
+        display: block;
       }
     }
   }

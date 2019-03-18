@@ -5,11 +5,10 @@ import PropTypes from 'prop-types'
 const InputComponent = ({ name, value, label, type, currentInput, errors, handlerChangesInputs, updateCurrentInput, emailValidate, form = {}, stylesDefault }) => {
     
     return (    
-        <div className='row'>
             <div className={classnames(stylesDefault,
                 { 'focus': currentInput === name },
                 { 'active': currentInput === name || value.length },
-                { 'error input-error': errors.email && name === 'email' }
+                { 'error input-error': errors.email && name === 'email' || errors.phone && name === 'phone' }
             )}>
 
                 <div className='input'>
@@ -24,7 +23,6 @@ const InputComponent = ({ name, value, label, type, currentInput, errors, handle
                 </div>
 
             </div>
-        </div>
     )
 }
 
