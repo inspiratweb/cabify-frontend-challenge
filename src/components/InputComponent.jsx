@@ -8,7 +8,8 @@ const InputComponent = ({ name, value, label, type, currentInput, errors, handle
             <div className={classnames(stylesDefault,
                 { 'focus': currentInput === name },
                 { 'active': currentInput === name || value.length },
-                { 'error input-error': errors.email && name === 'email' || errors.phone && name === 'phone' }
+                { 'error input-error': errors.email && name === 'email' },
+                { 'error input-error':  errors.phone && name === 'phone' }
             )}>
 
                 <div className='input'>
@@ -19,8 +20,8 @@ const InputComponent = ({ name, value, label, type, currentInput, errors, handle
                         onChange={handlerChangesInputs}
                         onClick={updateCurrentInput}
                         onBlur={() => {
-                            name === 'email' ? emailValidate(form.email) : null 
-                            name === 'phone' ? phoneValidate(form.phone) : null
+                            if(name === 'email') emailValidate(form.email)
+                            if(name === 'phone') phoneValidate(form.phone)
                         }} />
                     <label htmlFor={name}>{label}</label>
                 </div>
@@ -51,7 +52,6 @@ InputComponent.defaultProps = {
     currentInput: '',
     errors: [],
     handlerChangesInputs: () => null,
-    currentInput: () => null,
     emailValidate: () => null,
     phoneValidate: () => null,
 }

@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import classnames from 'classnames'
+import PropTypes from 'prop-types'
 
 const PrefixComponent = ({ currentInput, name, phonePrefixes, FlagIcon, prefixCurrent, updateCurrentInput, handlerChangeSelectPrefix }) => {
     const [open, setOpen] = useState(false)
-    
+
     const updateCurrentInputWithKeybord = (e) => {
         if (e.keyCode === 38) {
             const index = phonePrefixes.findIndex(i => i.prefix === prefixCurrent) - 1
@@ -44,22 +45,32 @@ const PrefixComponent = ({ currentInput, name, phonePrefixes, FlagIcon, prefixCu
                     <ul className="select-group-list">
                         {phonePrefixes.map(option => {
                             return (
-                                <div className="select-option-container" key={option.prefix}>
+                                <div
+                                    className="select-option-container"
+                                    key={option.prefix}>
                                     <li
                                         key={option.prefix}
                                         className="select-option"
                                         id={option.prefix}
                                         onClick={() => handlerChangeSelectPrefix({ prefixCurrent: option.prefix })} >
-                                        <span className="select-option-container-small" id={option.prefix}>
-                                            <span className="select-option-span" id={option.prefix}></span>
+                                        <span
+                                            className="select-option-container-small"
+                                            id={option.prefix}>
+                                            <span
+                                                className="select-option-span"
+                                                id={option.prefix}></span>
                                             <FlagIcon
                                                 className="select-option-flag"
                                                 code={option.countryCode}
                                                 size={20}
                                             />
-                                            <span className={`select-option-country${prefixCurrent === option.prefix ? '-selected' : ''}`} id={option.prefix}>{option.country}</span>
+                                            <span
+                                                className={`select-option-country${prefixCurrent === option.prefix ? '-selected' : ''}`}
+                                                id={option.prefix}>{option.country}</span>
                                         </span>
-                                        <span className="select-option-prefix" id={option.prefix}>{option.prefix}</span>
+                                        <span
+                                            className="select-option-prefix"
+                                            id={option.prefix}>{option.prefix}</span>
                                     </li>
                                 </div>
                             )
@@ -69,6 +80,26 @@ const PrefixComponent = ({ currentInput, name, phonePrefixes, FlagIcon, prefixCu
             </div>
         </div>
     )
+}
+
+PrefixComponent.propTypes = {
+    currentInput: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    phonePrefixes: PropTypes.object.isRequired,
+    FlagIcon: PropTypes.element.isRequired,
+    prefixCurrent: PropTypes.string.isRequired,
+    updateCurrentInput: PropTypes.func.isRequired,
+    handlerChangeSelectPrefix: PropTypes.func.isRequired,
+}
+
+PrefixComponent.defaultProps = {
+    currentInput: '',
+    name: '',
+    phonePrefixes: {},
+    FlagIcon: null,
+    prefixCurrent: '',
+    updateCurrentInput: () => null,
+    handlerChangeSelectPrefix: () => null,
 }
 
 export default PrefixComponent

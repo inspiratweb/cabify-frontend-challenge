@@ -36,7 +36,7 @@ class App extends React.PureComponent {
   }
 
   emailValidate = (email) => {
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+    if (/^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/i.test(email)) {
       this.setState({ errors: { ...this.state.errors, email: false } })
     } else this.setState({ errors: { ...this.state.errors, email: true } })
   }
@@ -51,7 +51,8 @@ class App extends React.PureComponent {
     const { value, name } = e.target
     this.setState({ form: { ...this.state.form, [name]: value, } }, () => {
       const { errors, form } = this.state
-      if (Object.values(errors).every(e => e === false) && Object.entries(form).map(i => i[1]).filter(i => typeof i === 'string').every(e => e.length >= 1)) {
+      if (Object.values(errors).every(e => e === false) 
+      && Object.entries(form).map(i => i[1]).filter(i => typeof i === 'string').every(e => e.length >= 1)) {
         this.setState({ form: { ...this.state.form, valid: true } })
       } else this.setState({ form: { ...this.state.form, valid: false } })
     })
