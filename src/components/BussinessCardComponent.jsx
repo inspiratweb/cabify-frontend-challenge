@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const BussinessCardComponent = ({ cabifyLogo, name, jobdescription, prefix, phone, website, address }) => (
+const BussinessCardComponent = ({ cabifyLogo, name, jobdescription, prefix, phone, website, address, email }) => (
     <article className="businessCard col col6">
         <figure className="businessCard-badge">
             <a className="businessCard-badge-logo" href="http://www.cabify.com">
@@ -18,7 +18,7 @@ const BussinessCardComponent = ({ cabifyLogo, name, jobdescription, prefix, phon
                 </div>
                 <div className="businessCard-cardFront-bottom">
                     <p className="businessCard-icon-phone">{prefix} {phone}</p>
-                    <p className="businessCard-icon-email"></p>
+                    <p className="businessCard-icon-email">{email}</p>
                     <p className="businessCard-icon-website">{website}</p>
                     <p className="businessCard-icon-address">{address}</p>
                 </div>
