@@ -2,7 +2,7 @@ import React from 'react'
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
 
-const InputComponent = ({ name, value, label, type, currentInput, errors, handlerChangesInputs, updateCurrentInput, emailValidate, form = {}, stylesDefault }) => {
+const InputComponent = ({ name, value, label, type, currentInput, errors, handlerChangesInputs, updateCurrentInput, emailValidate, phoneValidate, form = {}, stylesDefault }) => {
     
     return (    
             <div className={classnames(stylesDefault,
@@ -18,7 +18,10 @@ const InputComponent = ({ name, value, label, type, currentInput, errors, handle
                         value={value}
                         onChange={handlerChangesInputs}
                         onClick={updateCurrentInput}
-                        onBlur={() => emailValidate(form.email)} />
+                        onBlur={() => {
+                            name === 'email' ? emailValidate(form.email) : null 
+                            name === 'phone' ? phoneValidate(form.phone) : null
+                        }} />
                     <label htmlFor={name}>{label}</label>
                 </div>
 
@@ -37,6 +40,7 @@ InputComponent.propTypes = {
     handlerChangesInputs: PropTypes.func.isRequired,
     updateCurrentInput: PropTypes.func.isRequired,
     emailValidate: PropTypes.func,
+    phoneValidate: PropTypes.func
 }
 
 InputComponent.defaultProps = {
@@ -48,7 +52,8 @@ InputComponent.defaultProps = {
     errors: [],
     handlerChangesInputs: () => null,
     currentInput: () => null,
-    emailValidate: () => null
+    emailValidate: () => null,
+    phoneValidate: () => null,
 }
 
 export default InputComponent

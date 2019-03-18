@@ -37,19 +37,24 @@ class App extends React.PureComponent {
 
   emailValidate = (email) => {
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
-      this.setState({ errors: { email: false } })
-    } else this.setState({ errors: { email: true } })
+      this.setState({ errors: { ...this.state.errors, email: false } })
+    } else this.setState({ errors: { ...this.state.errors, email: true } })
   }
 
-  phoneValidate = () => {
-    if (/^.[0-9]{8,}$/.test(this.state.form.phone)) {
-      this.setState({ errors: { phone: false } })
-    } else this.setState({ errors: { phone: true } })
+  phoneValidate = (phone) => {
+    if (/^.[0-9]{8,}$/.test(phone)) {
+      this.setState({ errors: { ...this.state.errors, phone: false } })
+    } else this.setState({ errors: { ...this.state.errors, phone: true } })
   }
 
   handlerChangesInputs = (e) => {
     const { value, name } = e.target
-    this.setState({ form: { ...this.state.form, [name]: value, } })
+    this.setState({ form: { ...this.state.form, [name]: value, } }, () => {
+      const { errors, form } = this.state
+      if (Object.values(errors).every(e => e === false) && Object.entries(form).map(i => i[1]).filter(i => typeof i === 'string').every(e => e.length >= 1)) {
+        this.setState({ form: { ...this.state.form, valid: true } })
+      } else this.setState({ form: { ...this.state.form, valid: false } })
+    })
   }
 
   updateCurrentInput = ({ currentTarget: { name } }) => this.setState({ currentInput: name })
@@ -58,8 +63,6 @@ class App extends React.PureComponent {
 
   onSubmit = (e) => {
     e.preventDefault()
-    const { form: phone, email } = this.state
-    console.log(this.state)
   }
 
   render = ({ form, form: { name, jobdescription, phone, email, address, valid }, errors, currentInput, prefixCurrent, togglePrefix } = this.state) => {
@@ -98,7 +101,8 @@ class App extends React.PureComponent {
               value={jobdescription}
               errors={errors}
               currentInput={currentInput}
-              updateCurrentInput={this.updateCurrentInput} />
+              updateCurrentInput={this.updateCurrentInput}
+              handlerChangesInputs={this.handlerChangesInputs} />
 
 
             <div className="row row-separationMedium row-gutterMedium">
@@ -127,7 +131,7 @@ class App extends React.PureComponent {
                 currentInput={currentInput}
                 handlerChangesInputs={this.handlerChangesInputs}
                 updateCurrentInput={this.updateCurrentInput}
-                emailValidate={this.phoneValidate} />
+                phoneValidate={this.phoneValidate} />
             </div>
 
             {/* EMAIL */}
