@@ -4,7 +4,7 @@ import { FlagIcon } from 'react-flag-kit'
 // COMMON
 import PHONE_PREFIX from './common/prefix'
 // COMPONENTS
-import { InputComponent, BussinessCardComponent, ButtonComponent, InputPhoneComponent } from './components'
+import { InputComponent, BussinessCardComponent, ButtonComponent, PrefixComponent } from './components'
 // STYLES
 import './styles/App.css'
 // ASSETS
@@ -65,7 +65,7 @@ class App extends React.PureComponent {
     e.preventDefault()
   }
 
-  render = ({ form, form: { name, jobdescription, phone, email, address, valid }, errors, currentInput, prefixCurrent, togglePrefix } = this.state) => {
+  render = ({ form, form: { name, jobdescription, phone, email, address, valid }, errors, currentInput, prefixCurrent } = this.state) => {
 
     return (
       <div className="mainWrapper row">
@@ -107,7 +107,7 @@ class App extends React.PureComponent {
 
             <div className="row row-separationMedium row-gutterMedium">
               {/* PREFIX PHONE NUMBER */}
-              <InputPhoneComponent
+              <PrefixComponent
                 name={'prefix'}
                 FlagIcon={FlagIcon}
                 phonePrefixes={PHONE_PREFIX}

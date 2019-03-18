@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
 import classnames from 'classnames'
 
-const InputPhoneComponent = ({ currentInput, name, phonePrefixes, FlagIcon, phone, prefixCurrent, errors, updateCurrentInput, handlerChangeSelectPrefix }) => {
+const PrefixComponent = ({ currentInput, name, phonePrefixes, FlagIcon, prefixCurrent, updateCurrentInput, handlerChangeSelectPrefix }) => {
     const [open, setOpen] = useState(false)
-
+    
     const updateCurrentInputWithKeybord = (e) => {
-
         if (e.keyCode === 38) {
             const index = phonePrefixes.findIndex(i => i.prefix === prefixCurrent) - 1
             const update = phonePrefixes.find((item, idx) => idx === index) || phonePrefixes[0]
@@ -22,7 +21,6 @@ const InputPhoneComponent = ({ currentInput, name, phonePrefixes, FlagIcon, phon
 
     return (
         <div
-            onBlur={() => setOpen(false)}
             onKeyDown={(e) => updateCurrentInputWithKeybord(e)}
             onClick={() => open === false ? setOpen(true) : setOpen(false)}
             className={classnames('formField-select col col3',
@@ -38,9 +36,7 @@ const InputPhoneComponent = ({ currentInput, name, phonePrefixes, FlagIcon, phon
                     value={prefixCurrent}
                     maxLength="4"
                     className="select-input"
-                    onClick={updateCurrentInput}
-                    onChange={() => handlerChangeSelectPrefix({ prefixCurrent })}
-                    onFocus={this.handleActiveFocus}
+                    onFocus={updateCurrentInput}
                 />
                 <label htmlFor="phone_prefix">Prefix</label>
                 <div className={classnames('popup', { 'open': open })}>
@@ -75,4 +71,4 @@ const InputPhoneComponent = ({ currentInput, name, phonePrefixes, FlagIcon, phon
     )
 }
 
-export default InputPhoneComponent
+export default PrefixComponent
